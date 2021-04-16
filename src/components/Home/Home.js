@@ -1,9 +1,10 @@
 import React from 'react'
 import WelcomeImage from '../../assets/images/welcome.jpg'
+import Dashboard from './Dashboard'
 
-const Home = ({ word, onClick }) => {
+const Home = ({ userDetails, onClick }) => {
+
     return (
-
         <>
             <div className="App-header">
                 <img src={WelcomeImage} alt="Welcome Image" />
@@ -11,13 +12,17 @@ const Home = ({ word, onClick }) => {
 
             <div className="App-body">
                 <div className="App-body-title">
-                    <h1>Welcome {word}</h1>
+                    <h1>Welcome to your Dashboard </h1>
                 </div>
-                <div className="App-body-message">
-                    <p>Checkout your Profile</p>
-                    <p>Lorem ipsum, dolor sit Amet consectetur adipisicing elit. Quibusdam pariatur officia ullam et accusamus doloremque deserunt modi voluptas excepturi alias.</p>
+
+                <div className="App-body-dashboard">
+                    <p>Here Are your SignUp Details</p>
+                    <Dashboard userDetails={userDetails} />
                 </div>
-                <button onClick={onClick}>Logout</button>
+
+                <div className="button">
+                    <button onClick={() => onClick(false)}>Logout</button>
+                </div>
             </div>
         </>
 

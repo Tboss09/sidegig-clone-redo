@@ -4,13 +4,9 @@ import Home from './components/Home/Home'
 import FormikContainer from './components/SignUpForm/FormikContainer'
 
 const App = () => {
-  const handleLogin = () => {
-    setIsUserLoggedIn(!isUserLoggedIn)
-  }
+  const [userState, setUserState] = React.useState(false);
+  const [userDetails, setUserDetails] = React.useState('');
 
-  React.useEffect(() => {
-    console.log(isUserLoggedIn);
-  }, [isUserLoggedIn])
 
   return (
     <Router>
@@ -21,31 +17,46 @@ const App = () => {
           </li>
 
           <li>
-            <Link to="/signUp">Sign Up</Link>
-          </li>
-
-          <li>
-            <Link to="/login">Login</Link>
+            <Link to="/signup">Signup</Link>
           </li>
         </ul>
       </div>
 
 
       <Switch>
-        <Route path='/'>
-          {
-            isUserLoggedIn ?
-              <Home word="tayo" onClick={handleLogin} />
-              :
-              <FormikContainer />
-          }
 
+
+        <Route exact strict path='/'>
+          {userState ? <Home userDetails={userDetails}
+            onClick={userState => setUserState(userState)}
+            userState={userState}
+          />
+            :
+            <FormikContainer
+              letUserLogin={userState => setUserState(userState)}
+              setUserDashBoardDetails={userDetails => setUserDetails(userDetails)}
+            />
+          }
         </Route>
+
+        <Route path='/signup'>
+          {
+            userState ?
+              <p className = "signedIn">You are signed in Already</p>
+              :
+              <FormikContainer
+                letUserLogin={userState => setUserState(userState)}
+                setUserDashBoardDetails={userDetails => setUserDetails(userDetails)}
+              />
+
+          }
+        </Route>
+
 
       </Switch>
 
 
-    </Router>
+    </Router >
   )
 }
 
