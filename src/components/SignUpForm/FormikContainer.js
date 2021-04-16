@@ -80,7 +80,7 @@ const FormikContainer = ({ letUserLogin, setUserDashBoardDetails }) => {
 
                         <FormikControl control='input' name='password' type='password' label='Password' />
 
-                        <FormikControl control='input' name='confirmPassword' type='password' label='Confirm Password' />
+                        <FormikControl control='input' name='confirmPassword' type='password' label='Confirm:' />
                         <div className="button">
                             <button type="submit">Submit</button>
                         </div>

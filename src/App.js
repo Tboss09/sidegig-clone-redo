@@ -27,15 +27,23 @@ const App = () => {
 
 
         <Route exact strict path='/'>
-          {userState ? <Home userDetails={userDetails}
-            onClick={userState => setUserState(userState)}
-            userState={userState}
-          />
-            :
-            <FormikContainer
-              letUserLogin={userState => setUserState(userState)}
-              setUserDashBoardDetails={userDetails => setUserDetails(userDetails)}
+          {userState ?
+            <Home userDetails={userDetails}
+              onClick={userState => setUserState(userState)}
+              userState={userState}
             />
+            :
+            <div className="app">
+              {!userState ?
+                <p style = {{color:"red",textAlign:'center',paddingBottom:'20px'}}>To View the home page You must signup</p>
+
+                : ""}
+
+              <FormikContainer
+                letUserLogin={userState => setUserState(userState)}
+                setUserDashBoardDetails={userDetails => setUserDetails(userDetails)}
+              />
+            </div>
           }
         </Route>
 
