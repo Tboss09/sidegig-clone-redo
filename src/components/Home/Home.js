@@ -20,7 +20,7 @@ const Home = ({ userDetails, onClick }) => {
                     <Dashboard userDetails={userDetails} />
                 </div>
 
-                <div className="button">
+                <div className="logout">
                     <button onClick={() => onClick(false)}>Logout</button>
                 </div>
             </div>

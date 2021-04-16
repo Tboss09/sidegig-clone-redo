@@ -42,7 +42,12 @@ const App = () => {
         <Route path='/signup'>
           {
             userState ?
-              <p className = "signedIn">You are signed in Already</p>
+              <div className="">
+                <p className="signedIn">You are signed in Already</p>
+                <div className="logout">
+                  <button onClick={() => { setUserState(!userState) }}>LogOut</button>
+                </div>
+              </div>
               :
               <FormikContainer
                 letUserLogin={userState => setUserState(userState)}
