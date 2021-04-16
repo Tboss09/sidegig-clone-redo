@@ -7,7 +7,7 @@ const Home = ({ userDetails, onClick }) => {
     return (
         <>
             <div className="App-header">
-                <img src={WelcomeImage} alt="Welcome Image" />
+                <img src={WelcomeImage} alt="Welcome" />
             </div>
 
             <div className="App-body">
